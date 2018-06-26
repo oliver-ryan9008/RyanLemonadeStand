@@ -1,0 +1,7 @@
+C:\Users\rdo17\Desktop\DevCode\C#\RyanLemonadeStand\RyanLemonadeStand\bin\Debug\RyanLemonadeStand.exe.config
+C:\Users\rdo17\Desktop\DevCode\C#\RyanLemonadeStand\RyanLemonadeStand\bin\Debug\RyanLemonadeStand.exe
+C:\Users\rdo17\Desktop\DevCode\C#\RyanLemonadeStand\RyanLemonadeStand\bin\Debug\RyanLemonadeStand.pdb
+C:\Users\rdo17\Desktop\DevCode\C#\RyanLemonadeStand\RyanLemonadeStand\obj\Debug\RyanLemonadeStand.csprojAssemblyReference.cache
+C:\Users\rdo17\Desktop\DevCode\C#\RyanLemonadeStand\RyanLemonadeStand\obj\Debug\RyanLemonadeStand.csproj.CoreCompileInputs.cache
+C:\Users\rdo17\Desktop\DevCode\C#\RyanLemonadeStand\RyanLemonadeStand\obj\Debug\RyanLemonadeStand.exe
+C:\Users\rdo17\Desktop\DevCode\C#\RyanLemonadeStand\RyanLemonadeStand\obj\Debug\RyanLemonadeStand.pdb

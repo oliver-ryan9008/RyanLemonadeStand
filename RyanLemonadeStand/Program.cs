@@ -12,6 +12,7 @@ namespace RyanLemonadeStand
         {
             Game game = new Game();
             game.PromptForGame();
+            game.StartGame();
         }
     }
 }
