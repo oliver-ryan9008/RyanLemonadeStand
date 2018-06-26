@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 
 namespace RyanLemonadeStand
 {
-    class Program
+    class Day
     {
-        static void Main(string[] args)
+        
+        public void Weather()
         {
-            Game game = new Game();
-            game.PromptForGame();
+
         }
+
+        public List<int> customers = new List<int>();
+        
+
+        
     }
 }

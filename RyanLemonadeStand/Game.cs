@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace RyanLemonadeStand
 {
-    class Program
+    class Game
     {
-        static void Main(string[] args)
+        public void RunGame()
         {
-            Game game = new Game();
-            game.PromptForGame();
+
+        }
+        public void PromptForGame()
+        {
+
         }
     }
 }
