@@ -8,7 +8,20 @@ namespace RyanLemonadeStand
 {
     class Game
     {
-        
+
+        //public static int cupsPurchased;
+        //public static int lemonsPurchased;
+        //public static int sugarPurchased;
+        //public static int icePurchased;
+        public int totalCups = Store.totalCups;
+        public int totalLemons = Store.totalLemons;
+        public int totalSugar = Store.totalSugar;
+        public int totalIce = Store.totalIce;
+        int buyerPurchasedCups = Store.cupsPurchased;
+        int buyerPurchasedLemons = Store.lemonsPurchased;
+        int buyerPurchasedIce = Store.icePurchased;
+        int buyerPurchasedSugar = Store.sugarPurchased;
+
         public void RunGame()
         {
 
@@ -39,24 +52,20 @@ namespace RyanLemonadeStand
         public void StartGame()
         {
             Store store = new Store();
-            Console.WriteLine("Let's start by purchasing some materials for your inventory!\n Press any key to start purchasing materials!");
-            Console.ReadKey();
-            UI.BuyLemons();
+            UI.UserAddToInventory();
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
-            UI.DisplayInventory();
-            
-            //store.BuySugar();
-            //store.BuyIce();
-            //store.BuyCups();
-
+            Store.AddTotalCupsNumber(buyerPurchasedCups, Player.currentCups);
+            Store.AddTotalLemonsNumber(buyerPurchasedLemons, Player.currentLemons);
+            Store.AddTotalSugarNumber(buyerPurchasedSugar, Player.currentSugar);
+            Store.AddTotalIceNumber(buyerPurchasedIce, Player.currentIce);
+            UI.DisplayRestockedInventory(totalCups, totalSugar, totalIce, totalLemons);
+            Console.WriteLine("End of code so far.");
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine("End of game. Press a key to close game.");
+            Console.ReadKey();
+            Environment.Exit(0);
         }
-
-        //public void DisplayInventory()
-        //{
-        //    Console.WriteLine("This is where inventory will show once I get it working.");
-        //    Console.ReadKey();
-            
-        //}
     }
 }

@@ -10,9 +10,9 @@ namespace RyanLemonadeStand
     {
         static void Main(string[] args)
         {
-            Game game = new Game();            
+            Game game = new Game();
             game.PromptForGame();
-            game.StartGame();
+            //game.StartGame();
         }
     }
 }

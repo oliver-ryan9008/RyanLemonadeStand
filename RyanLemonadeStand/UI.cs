@@ -8,168 +8,90 @@ namespace RyanLemonadeStand
 {
     public static class UI
     {
-        public static int lemonBuyPrompt;
-        public static int lemonsPurchased;
-        public static int sugarBuyPrompt;
-        public static int sugarPurchased;
-        public static int iceBuyPrompt;
-        public static int icePurchased;
-        public static int cupBuyPrompt;
+        //public static string lemonBuyPrompt;
+        
+        //public static string sugarBuyPrompt;
+        
+        //public static string iceBuyPrompt;
+        
+        //public static string cupBuyPrompt;
         public static int cupsPurchased;
-        static string checkLemonResponse;
-        static string checkSugarResponse;
-        static string checkIceResponse;
-        static string checkCupsResponse;
-        public static int displayPurchasedCups;
-        public static int displayPurchasedLemons;
-        public static int displayPurchasedSugar;
-        public static int displayPurchasedIce;
-        public static int currentCups = 10;
-        public static int currentIce = 10;
-        public static int currentSugar = 10;
-        public static int currentLemons = 10;
-        public static void DisplayInventory()
-        {
-            Console.Clear();
-            Console.WriteLine("This is where inventory will show once I get it working.");
-            Console.ReadKey();
-        }
+        public static int lemonsPurchased;
+        public static int sugarPurchased;
+        public static int icePurchased;
+        //static string checkLemonResponse;
+        //static string checkSugarResponse;
+        //static string checkIceResponse;
+        //static string checkCupsResponse;
+        //public static int displayPurchasedCups;
+        //public static int displayPurchasedLemons;
+        //public static int displayPurchasedSugar;
+        //public static int displayPurchasedIce;
+        //public static int currentCups = 10;
+        //public static int currentIce = 10;
+        //public static int currentSugar = 10;
+        //public static int currentLemons = 10;
+        public static int totalCups;
+        public static int totalLemons;
+        public static int totalSugar;
+        public static int totalIce;
+
 
         public static void GetUserStoreInputs()
         {
 
         }
 
-        public static int DisplayTotalCupsNumber()
+        public static void UserAddToInventory()
         {
-            int totalCups = cupsPurchased + currentCups;
-            return totalCups;
-        }
-        public static int DisplayTotalLemonsNumber()
-        {
-            int totalLemons = lemonsPurchased + currentLemons;
-            return totalLemons;
-        }
-        public static int DisplayTotalSugarNumber()
-        {
-            int totalSugar = sugarPurchased + currentSugar;
-            return totalSugar;
-        }
-        public static int DisplayTotalIceNumber()
-        {
-            int totalIce = icePurchased + currentIce;
-            return totalIce;
-        }
-
-        public static int BuyLemons()
-        {
-            Console.Clear();
-            Console.WriteLine("How many lemons would you like to buy?");
-            lemonBuyPrompt = int.Parse(Console.ReadLine());
-            if (lemonBuyPrompt == 0)
+            DisplayBackroomInventory();            
+            Console.WriteLine("Would you like to buy some more items to add to your inventory?");
+            string userAddToInventoryPromp = Console.ReadLine().ToString();
+            if (userAddToInventoryPromp == "yes")
             {
-                Console.WriteLine("Are you sure you don't want any cups?");
-                checkLemonResponse = Console.ReadLine().ToLower();
-                if (checkLemonResponse == "yes")
-                {
-                    BuyIce();
-                }
-                else
-                {
-                    BuyLemons();
-                }
+                Store.BuyLemons();
             }
             else
             {
-                lemonsPurchased = lemonBuyPrompt;
-                //UI.DisplayInventory();
+                Console.Clear();
+                
             }
-            return lemonsPurchased;
+        }
+
+        public static void DisplayBackroomInventory()
+        {
+            Console.WriteLine("You have " + Player.currentLemons + " lemons on hand.");
+            Console.WriteLine("You have " + Player.currentSugar + " servings of sugar on hand.");
+            Console.WriteLine("You have " + Player.currentIce + " cubes of ice on hand.");
+            Console.WriteLine("You have " + Player.currentCups + " cups on hand.");
+        }
+
+        public static void DisplayRestockedInventory(int totalSugar, int totalLemons, int totalIce, int totalCups)
+        {
+            
+            Console.WriteLine("After all purchases you have " + Store.totalLemons + " lemons in your inventory.");
+            Console.WriteLine("After all purchases you have " + Store.totalSugar + " servings of sugar in your inventory.");
+            Console.WriteLine("After all purchases you have " + Store.totalIce + " cubes of ice in your inventory.");
+            Console.WriteLine("After all purchases you have " + Store.totalCups + " cups in your inventory.");
+        }
+
+
+
+        
+            
 
             
 
-        }
-        public static void BuyIce()
-        {
-            Console.Clear();
-            Console.WriteLine("How much ice would you like to buy?");
-            iceBuyPrompt = int.Parse(Console.ReadLine());
-            if (lemonBuyPrompt == 0)
-            {
-                Console.WriteLine("Are you sure you don't want any ice?");
-                checkIceResponse = Console.ReadLine().ToLower();
-                if (checkIceResponse == "yes")
-                {
-                    BuySugar();
-                }
-                else
-                {
-                    BuyIce();
-                }
-            }
-            else
-            {
-                icePurchased = int.Parse(Console.ReadLine());
-                BuySugar();
-
-            }
-            Console.WriteLine("You have purchased " + icePurchased + " cubes of ice.");
-        }
-        public static void BuySugar()
-        {
-            Console.Clear();
-            Console.WriteLine("Would you like to buy some sugar? Enter yes or no.");
-            sugarBuyPrompt = int.Parse(Console.ReadLine());
-            if (lemonBuyPrompt == 0)
-            {
-                Console.WriteLine("Are you sure you don't want any sugar?");
-                checkSugarResponse = Console.ReadLine().ToLower();
-                if (checkSugarResponse == "yes")
-                {
-                    BuyCups();
-                }
-                else
-                {
-                    BuySugar();
-                }
-            }
-            else
-            {
-                sugarPurchased = int.Parse(Console.ReadLine());
-                BuyCups();
-
-            }
-            Console.WriteLine("You have purchased " + sugarPurchased + " servings of sugar.");
-        }
+        
+        
+        
 
 
-        public static void BuyCups()
-        {
-            Console.Clear();
-            Console.WriteLine("How many cups would you like to buy?");
-            cupBuyPrompt = int.Parse(Console.ReadLine());
-            if (cupBuyPrompt == 0)
-            {
-                Console.WriteLine("Are you sure you don't want any cups?");
-                checkCupsResponse = Console.ReadLine().ToLower();
-                if (checkCupsResponse == "yes")
-                {
-                    UI.DisplayInventory();
-                }
-                else
-                {
-                    BuyCups();
-                }
-            }
-            else
-            {
-                cupsPurchased = int.Parse(Console.ReadLine());
-                UI.DisplayInventory();
-            }
+        
 
-            Console.WriteLine("You have purchased " + cupsPurchased + " cups.");
+            
 
-        }
+        
     }
 }
 
