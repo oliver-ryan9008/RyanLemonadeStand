@@ -48,6 +48,7 @@ namespace RyanLemonadeStand
         {
             Player player = new Player();
             Store store = new Store();
+            Day day = new Day();
             UI.DisplayBackroomInventory();
             store.BuyLemons();
             store.BuyIce();

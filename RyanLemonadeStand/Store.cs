@@ -8,6 +8,7 @@ namespace RyanLemonadeStand
 {
     class Store
     {
+
         public string lemonBuyPrompt;
         public int lemonsPurchased;
         public string sugarBuyPrompt;

@@ -8,13 +8,51 @@ namespace RyanLemonadeStand
 {
     class Player
     {
-        public static int currentCups = 10;
-        public static int currentIce = 10;
-        public static int currentLemons = 10;
-        public static int currentSugar = 10;
+        
+        public static int currentCups = 0;
+        public static int currentIce = 0;
+        public static int currentLemons = 0;
+        public static int currentSugar = 0;
+        public bool enoughInventory;
+        public int lemonInventory;
+        public int iceInventory;
+        public int sugarInventory;
+        public int cupsInventory;
 
 
+        public Player()
+        {
+
+        }
+
+        public void SellingInventoryCalculation()
+        {
+            currentLemons = currentLemons - 1;
+            currentIce = currentIce - 1;
+            currentSugar = currentSugar - 1;
+            currentCups = currentCups - 1;
+        }
+        public static void UserInventory()
+        {
+            
+        }
+
+        public bool InventoryCheck()
+        {
+            if (lemonInventory > 0 && iceInventory > 0 && sugarInventory > 0 && cupsInventory > 0)
+            {
+                enoughInventory = true;
+            }
+            else
+            {
+                enoughInventory = false;
+                Console.WriteLine("STORE CLOSED: You do not have enough inventory to serve your customers. You need to purchase more materials before you can reopen your store.");
+            }
+            return enoughInventory;
+        }
+        
 
     }
+        
 }
 
