@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RyanLemonadeStand
 {
-    class Store
+    public class Store
     {
 
         public string lemonBuyPrompt;
@@ -21,10 +21,10 @@ namespace RyanLemonadeStand
         public string checkSugarResponse;
         public string checkIceResponse;
         public string checkCupsResponse;
-        public static int totalCups;
-        public static int totalLemons;
-        public static int totalSugar;
-        public static int totalIce;
+        public int totalCups;
+        public int totalLemons;
+        public int totalSugar;
+        public int totalIce;
         public int BuyLemons()
         {
             Console.Clear();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RyanLemonadeStand
 {
-    class Player
+    public class Player
     {
         
         public static int currentCups = 0;
@@ -34,7 +34,7 @@ namespace RyanLemonadeStand
         }
         public static void UserInventory()
         {
-            
+            lemonInventory = 
         }
 
         public bool InventoryCheck()

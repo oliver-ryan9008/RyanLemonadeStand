@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace RyanLemonadeStand
 {
-    class Game
+    public class Game
     {
 
         //public static int cupsPurchased;
         //public static int lemonsPurchased;
         //public static int sugarPurchased;
         //public static int icePurchased;
+        Random random;
         public int totalCups = Store.totalCups;
         public int totalLemons = Store.totalLemons;
         public int totalSugar = Store.totalSugar;
@@ -24,6 +25,19 @@ namespace RyanLemonadeStand
         {
 
         }
+        public void RandomNumberGenerator(Random random)
+        {
+            this.random = random;
+        }
+
+        public int GenerateRandomNumber(int min, int max)
+        {
+            random = new Random();
+            int randomNumber = random.Next(min, max);
+            return randomNumber;
+        }
+
+
         public void PromptForGame()
         {
             Console.Clear();
@@ -52,10 +66,11 @@ namespace RyanLemonadeStand
             Player player = new Player();
             Store store = new Store();
             Day day = new Day();
+            Customer customer = new Customer();
             UI.DisplayBackroomInventory();
             day.TemperatureGenerator();
             day.ConditionsGenerator();
-            day.CustomersPurchaseRate(combinedWeather);
+            customer.CustomersPurchaseRate();
             UI.DisplayTodaysWeather(day);
             store.BuyLemons();
             store.BuyIce();

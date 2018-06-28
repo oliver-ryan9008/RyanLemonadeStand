@@ -52,7 +52,7 @@ namespace RyanLemonadeStand
             
         }
 
-        public static void DisplayRestockedInventory(int totalSugar, int totalLemons, int totalIce, int totalCups)
+        public static void DisplayRestockedInventory(Player player)
         {
             
             Console.WriteLine("After all purchases you have " + lemonInventory + " lemons in your inventory.");

@@ -8,13 +8,29 @@ namespace RyanLemonadeStand
 {
     public class Day
     {
-        public int buyRate;
+        //public int buyRate;
         public int temperatureReading;
         public int conditions;
         public int combinedWeather;
         public int randomConditions;
         public int randomTemperature;
         public int randomWeather;
+        List<Customer> customers;
+        public static int weather;
+
+        public Day()
+        {
+            
+            customers = new List<Customer>();
+            weather = new Weather();
+            GenerateCustomers();
+            weather.TemperatureGenerator();
+            
+        }
+
+
+
+
         public int TemperatureGenerator()
         {
             Random randomTemparatureGenerator = new Random();
@@ -73,7 +89,7 @@ namespace RyanLemonadeStand
             return conditions;
         }
 
-        public static int Weather()
+        public int Weather()
         {
             randomWeather = conditions + temperatureReading;
             if (randomWeather == 2)
@@ -115,60 +131,56 @@ namespace RyanLemonadeStand
             return combinedWeather;
         }
 
-        public int CustomersPurchaseRate()
-        {
-            if (combinedWeather == 2)
-            {
-                Random buyRateGenerator = new Random();
-                int buyRate = buyRateGenerator.Next(50, 150);
-            }
-            else if (combinedWeather == 3)
-            {
-                Random buyRateGenerator = new Random();
-                int buyRate = buyRateGenerator.Next(151, 250);
-            }
-            else if (combinedWeather == 4)
-            {
-                Random buyRateGenerator = new Random();
-                int buyRate = buyRateGenerator.Next(251, 350);
-            }
-            else if (combinedWeather == 5)
-            {
-                Random buyRateGenerator = new Random();
-                int buyRate = buyRateGenerator.Next(351, 450);
-            }
-            else if (combinedWeather == 6)
-            {
-                Random buyRateGenerator = new Random();
-                int buyRate = buyRateGenerator.Next(451, 550);
-            }
-            else if (combinedWeather == 7)
-            {
-                Random buyRateGenerator = new Random();
-                int buyRate = buyRateGenerator.Next(551, 650);
-            }
-            else if (combinedWeather == 8)
-            {
-                Random buyRateGenerator = new Random();
-                int buyRate = buyRateGenerator.Next(651, 800);
-            }
-            else if (combinedWeather == 9)
-            {
-                Random buyRateGenerator = new Random();
-                int buyRate = buyRateGenerator.Next(801, 1000);
-            }
-            else if (combinedWeather == 10)
-            {
-                Random buyRateGenerator = new Random();
-                int buyRate = buyRateGenerator.Next(1001, 2000);
-            }
-            return buyRate;
-        }
+        //public int CustomersPurchaseRate()
+        //{
+        //    if (combinedWeather == 2)
+        //    {
+        //        Random buyRateGenerator = new Random();
+        //        int buyRate = buyRateGenerator.Next(50, 150);
+        //    }
+        //    else if (combinedWeather == 3)
+        //    {
+        //        Random buyRateGenerator = new Random();
+        //        int buyRate = buyRateGenerator.Next(151, 250);
+        //    }
+        //    else if (combinedWeather == 4)
+        //    {
+        //        Random buyRateGenerator = new Random();
+        //        int buyRate = buyRateGenerator.Next(251, 350);
+        //    }
+        //    else if (combinedWeather == 5)
+        //    {
+        //        Random buyRateGenerator = new Random();
+        //        int buyRate = buyRateGenerator.Next(351, 450);
+        //    }
+        //    else if (combinedWeather == 6)
+        //    {
+        //        Random buyRateGenerator = new Random();
+        //        int buyRate = buyRateGenerator.Next(451, 550);
+        //    }
+        //    else if (combinedWeather == 7)
+        //    {
+        //        Random buyRateGenerator = new Random();
+        //        int buyRate = buyRateGenerator.Next(551, 650);
+        //    }
+        //    else if (combinedWeather == 8)
+        //    {
+        //        Random buyRateGenerator = new Random();
+        //        int buyRate = buyRateGenerator.Next(651, 800);
+        //    }
+        //    else if (combinedWeather == 9)
+        //    {
+        //        Random buyRateGenerator = new Random();
+        //        int buyRate = buyRateGenerator.Next(801, 1000);
+        //    }
+        //    else if (combinedWeather == 10)
+        //    {
+        //        Random buyRateGenerator = new Random();
+        //        int buyRate = buyRateGenerator.Next(1001, 2000);
+        //    }
+        //    return buyRate;
+        //}
 
 
-        public List<int> customers = new List<int>();
-        
-
-        
     }
 }
