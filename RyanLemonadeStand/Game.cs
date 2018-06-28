@@ -17,11 +17,6 @@ namespace RyanLemonadeStand
         public int totalLemons = Store.totalLemons;
         public int totalSugar = Store.totalSugar;
         public int totalIce = Store.totalIce;
-        int buyerPurchasedCups = Store.cupsPurchased;
-        int buyerPurchasedLemons = Store.lemonsPurchased;
-        int buyerPurchasedIce = Store.icePurchased;
-        int buyerPurchasedSugar = Store.sugarPurchased;
-
         public void RunGame()
         {
 
@@ -51,14 +46,19 @@ namespace RyanLemonadeStand
 
         public void StartGame()
         {
+            Player player = new Player();
             Store store = new Store();
-            UI.UserAddToInventory();
+            UI.DisplayBackroomInventory();
+            store.BuyLemons();
+            store.BuyIce();
+            store.BuySugar();
+            store.BuyCups();
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
-            Store.AddTotalCupsNumber(buyerPurchasedCups, Player.currentCups);
-            Store.AddTotalLemonsNumber(buyerPurchasedLemons, Player.currentLemons);
-            Store.AddTotalSugarNumber(buyerPurchasedSugar, Player.currentSugar);
-            Store.AddTotalIceNumber(buyerPurchasedIce, Player.currentIce);
+            store.AddTotalCupsNumber();
+            store.AddTotalLemonsNumber();
+            store.AddTotalSugarNumber();
+            store.AddTotalIceNumber();
             UI.DisplayRestockedInventory(totalCups, totalSugar, totalIce, totalLemons);
             Console.WriteLine("End of code so far.");
             Console.ReadKey();

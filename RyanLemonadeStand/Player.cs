@@ -10,28 +10,11 @@ namespace RyanLemonadeStand
     {
         public static int currentCups = 10;
         public static int currentIce = 10;
-        public static int currentSugar = 10;
         public static int currentLemons = 10;
-        public Player()
-        {
+        public static int currentSugar = 10;
 
-        }
 
-        public void Recipe()
-        {
 
-        }
-
-        public void CurrentInventory()
-        {
-            
-        }
-        public void Inventory()
-        {
-           
-        }
     }
 }
-
-
 
