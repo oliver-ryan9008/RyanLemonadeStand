@@ -17,6 +17,9 @@ namespace RyanLemonadeStand
         public int totalLemons = Store.totalLemons;
         public int totalSugar = Store.totalSugar;
         public int totalIce = Store.totalIce;
+        public int combinedWeather = Day.combinedWeather;
+        public static string randomTemperature = Day.randomTemperature.ToString();
+        public static string randomConditions = Day.randomConditions.ToString();
         public void RunGame()
         {
 
@@ -50,6 +53,10 @@ namespace RyanLemonadeStand
             Store store = new Store();
             Day day = new Day();
             UI.DisplayBackroomInventory();
+            day.TemperatureGenerator();
+            day.ConditionsGenerator();
+            day.CustomersPurchaseRate(combinedWeather);
+            UI.DisplayTodaysWeather(day);
             store.BuyLemons();
             store.BuyIce();
             store.BuySugar();

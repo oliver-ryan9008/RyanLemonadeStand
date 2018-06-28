@@ -16,9 +16,9 @@ namespace RyanLemonadeStand
         public static int iceInventory = Store.totalIce;
         public static int sugarInventory = Store.totalSugar;
         public static int cupsInventory = Store.totalCups;
-        public static int combinedWeather = Day.combinedWeather;
-        public static int temperatureReading = Day.temperatureReading;
-        public static int conditions = Day.conditions;
+        //public static int combinedWeather = Day.combinedWeather;
+        //public static int randomTemperature = Day.randomTemperature;
+        //public static int randomConditions = Day.randomConditions;
 
 
         public static void GetUserStoreInputs()
@@ -49,7 +49,7 @@ namespace RyanLemonadeStand
             Console.WriteLine("You have " + currentIce + " cubes of ice on hand.");
             Console.WriteLine("You have " + currentCups + " cups on hand.");
             Console.ReadKey();
-            UserAddToInventory();
+            
         }
 
         public static void DisplayRestockedInventory(int totalSugar, int totalLemons, int totalIce, int totalCups)
@@ -61,43 +61,43 @@ namespace RyanLemonadeStand
             Console.WriteLine("After all purchases you have " + cupsInventory + " cups in your inventory.");
         }
 
-        public static void DisplayTodaysWeather()
+        public static void DisplayTodaysWeather(Day day)
         {
-            if (combinedWeather == 2)
+            if (day.combinedWeather == 2)
             {
-                Console.WriteLine("The weather today is " + temperatureReading + " degrees Fahrenheit and " + conditions + ". It's not a very good day for sales!");
+                Console.WriteLine("The weather today is " + day.randomTemperature + " degrees Fahrenheit and " + day.randomConditions + ". It's not a very good day for sales!");
             }
-            else if (combinedWeather == 3)
+            else if (day.combinedWeather == 3)
             {
-                Console.WriteLine("The weather today is " + temperatureReading + " degrees Fahrenheit and " + conditions + ". It's not a very good day for sales!");
+                Console.WriteLine("The weather today is " + day.randomTemperature + " degrees Fahrenheit and " + day.randomConditions + ". It's not a very good day for sales!");
             }
-            else if (combinedWeather == 4)
+            else if (day.combinedWeather == 4)
             {
-                Console.WriteLine("The weather today is " + temperatureReading + " degrees Fahrenheit and " + conditions + ". It's an average day for sales!");
+                Console.WriteLine("The weather today is " + day.randomTemperature + " degrees Fahrenheit and " + day.randomConditions + ". It's an average day for sales!");
             }
-            else if (combinedWeather == 5)
+            else if (day.combinedWeather == 5)
             {
-                Console.WriteLine("The weather today is " + temperatureReading + " degrees Fahrenheit and " + conditions + ". It's an average day for sales!");
+                Console.WriteLine("The weather today is " + day.randomTemperature + " degrees Fahrenheit and " + day.randomConditions + ". It's an average day for sales!");
             }
-            else if (combinedWeather == 6)
+            else if (day.combinedWeather == 6)
             {
-                Console.WriteLine("The weather today is " + temperatureReading + " degrees Fahrenheit and " + conditions + ". It's an average day for sales!");
+                Console.WriteLine("The weather today is " + day.randomTemperature + " degrees Fahrenheit and " + day.randomConditions + ". It's an average day for sales!");
             }
-            else if (combinedWeather == 7)
+            else if (day.combinedWeather == 7)
             {
-                Console.WriteLine("The weather today is " + temperatureReading + " degrees Fahrenheit and " + conditions + ". It's an average day for sales!");
+                Console.WriteLine("The weather today is " + day.randomTemperature + " degrees Fahrenheit and " + day.randomConditions + ". It's an average day for sales!");
             }
-            else if (combinedWeather == 8)
+            else if (day.combinedWeather == 8)
             {
-                Console.WriteLine("The weather today is " + temperatureReading + " degrees Fahrenheit and " + conditions + ". It's a pretty good day for sales!");
+                Console.WriteLine("The weather today is " + day.randomTemperature + " degrees Fahrenheit and " + day.randomConditions + ". It's a pretty good day for sales!");
             }
-            else if (combinedWeather == 9)
+            else if (day.combinedWeather == 9)
             {
-                Console.WriteLine("The weather today is " + temperatureReading + " degrees Fahrenheit and " + conditions + ". It's not an excellent day for sales!");
+                Console.WriteLine("The weather today is " + day.randomTemperature + " degrees Fahrenheit and " + day.randomConditions + ". It's not an excellent day for sales!");
             }
-            else if (combinedWeather == 10)
+            else if (day.combinedWeather == 10)
             {
-                Console.WriteLine("The weather today is " + temperatureReading + " degrees Fahrenheit and " + conditions + ". It's the perfect day for sales!");
+                Console.WriteLine("The weather today is " + day.randomTemperature + " degrees Fahrenheit and " + day.randomConditions + ". It's the perfect day for sales!");
             }
         }
 

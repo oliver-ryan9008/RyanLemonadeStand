@@ -6,47 +6,50 @@ using System.Threading.Tasks;
 
 namespace RyanLemonadeStand
 {
-    class Day
+    public class Day
     {
-        public static int buyRate;
-        public static int temperatureReading;
-        public static int conditions;
-        public static int combinedWeather;
+        public int buyRate;
+        public int temperatureReading;
+        public int conditions;
+        public int combinedWeather;
+        public int randomConditions;
+        public int randomTemperature;
+        public int randomWeather;
         public int TemperatureGenerator()
         {
             Random randomTemparatureGenerator = new Random();
-            int randomTemperature = randomTemparatureGenerator.Next(50, 100);
+            randomTemperature = randomTemparatureGenerator.Next(50, 100);
                 if (randomTemperature >= 50 && randomTemperature <= 60)
-            {
+                {
                 temperatureReading = 1;
                 string displayTemperature = randomTemperature.ToString();
-            }
+                }
                 else if (randomTemperature >= 61 && randomTemperature <= 70)
-            {
+                {
                 temperatureReading = 2;
                 string displayTemperature = randomTemperature.ToString();
-            }
-            else if (randomTemperature >= 71 && randomTemperature <= 80)
-            {
-                temperatureReading = 3;
-                string displayTemperature = randomTemperature.ToString();
-            }
-            else if (randomTemperature >= 81 && randomTemperature <= 90)
-            {
-                temperatureReading = 4;
-                string displayTemperature = randomTemperature.ToString();
-            }
-            else if (randomTemperature >= 91 && randomTemperature <= 100)
-            {
-                temperatureReading = 5;
-                string displayTemperature = randomTemperature.ToString();
-            }
-            return temperatureReading;
+                }
+                else if (randomTemperature >= 71 && randomTemperature <= 80)
+                {
+                    temperatureReading = 3;
+                    string displayTemperature = randomTemperature.ToString();
+                }
+                else if (randomTemperature >= 81 && randomTemperature <= 90)
+                {
+                    temperatureReading = 4;
+                    string displayTemperature = randomTemperature.ToString();
+                }
+                else if (randomTemperature >= 91 && randomTemperature <= 100)
+                {
+                    temperatureReading = 5;
+                    string displayTemperature = randomTemperature.ToString();
+                }
+                return temperatureReading;
         }
         public int ConditionsGenerator()
         {
             Random randomWeatherConditionsGenerator = new Random();
-            int randomConditions = randomWeatherConditionsGenerator.Next(1, 5);
+            randomConditions = randomWeatherConditionsGenerator.Next(1, 5);
             if (randomConditions == 1)
             {
                 conditions = 1;
@@ -72,7 +75,7 @@ namespace RyanLemonadeStand
 
         public static int Weather()
         {
-            int randomWeather = conditions + temperatureReading;
+            randomWeather = conditions + temperatureReading;
             if (randomWeather == 2)
             {
                 combinedWeather = 2;                
@@ -112,7 +115,7 @@ namespace RyanLemonadeStand
             return combinedWeather;
         }
 
-        public int CustomersPurchaseRate(int combinedWeather)
+        public int CustomersPurchaseRate()
         {
             if (combinedWeather == 2)
             {
