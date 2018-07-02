@@ -31,10 +31,10 @@ namespace RyanLemonadeStand
         {
 
         }
-        public void RandomNumberGenerator(Random random)
-        {
-            this.randomNumber = random;
-        }
+        //public void RandomNumberGenerator(Random random)
+        //{
+        //    this.randomNumber = random;
+        //}
 
         //public void GenerateRandomNumber(int min, int max)
         //{
@@ -90,8 +90,12 @@ namespace RyanLemonadeStand
             store.AddTotalSugarNumber(player);
             store.AddTotalIceNumber(player);
             UI.DisplayRestockedInventory(player, store);
+            day.TemperatureGenerator();
+            day.ConditionsGenerator();
+            day.Weather();
+            customer.GenerateCustomers(day, min, max);
             customer.CustomerPurchaseRate(min, max, day);
-            customer.GenerateCustomers(random, day, min, max);
+            UI.DisplayTotalCustomerPurchases(customer);
             Console.WriteLine("End of code so far.");
             Console.ReadKey();
             Console.Clear();

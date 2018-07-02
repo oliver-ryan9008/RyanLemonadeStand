@@ -25,7 +25,9 @@ namespace RyanLemonadeStand
         public int totalLemons;
         public int totalSugar;
         public int totalIce;
-        public int BuyLemons()
+        public double moneySpent;
+        public double lemonadeCupPrice;
+        public int BuyLemons(Player player)
         {
             Console.Clear();
             Console.WriteLine("How many lemons would you like to buy?");
@@ -41,7 +43,7 @@ namespace RyanLemonadeStand
                 }
                 else
                 {
-                    return BuyLemons();                    
+                    return BuyLemons(player);                    
                 }
             }
             else
@@ -50,13 +52,14 @@ namespace RyanLemonadeStand
                 
                 Console.WriteLine("You have purchased " + lemonsPurchased + " lemons.");
                 Console.ReadKey();
+                player.lemonInventory--;
                 return lemonsPurchased;
 
             }
             
         }
 
-        public int BuyIce()
+        public int BuyIce(Player player)
         {
             Console.Clear();
             Console.WriteLine("How much ice would you like to buy?");
@@ -71,7 +74,7 @@ namespace RyanLemonadeStand
                 }
                 else
                 {
-                    return BuyIce();
+                    return BuyIce(player);
                 }
             }
             else
@@ -80,6 +83,7 @@ namespace RyanLemonadeStand
                 
                 Console.WriteLine("You have purchased " + icePurchased + " cubes of ice.");
                 Console.ReadKey();
+                player.iceInventory--;
                 return icePurchased;
 
             }
@@ -87,7 +91,7 @@ namespace RyanLemonadeStand
 
         }
 
-        public int BuySugar()
+        public int BuySugar(Player player)
         {
             Console.Clear();
             Console.WriteLine("How many servings of sugar would you like to buy?");
@@ -102,7 +106,7 @@ namespace RyanLemonadeStand
                 }
                 else
                 {
-                    return BuySugar();
+                    return BuySugar(player);
                 }
             }
             else
@@ -111,6 +115,7 @@ namespace RyanLemonadeStand
                 
                 Console.WriteLine("You have purchased " + sugarPurchased + " servings of sugar.");
                 Console.ReadKey();
+                player.sugarInventory--;
                 return sugarPurchased;
 
             }
@@ -118,7 +123,7 @@ namespace RyanLemonadeStand
 
         }
 
-        public int BuyCups()
+        public int BuyCups(Player player)
         {
             Console.Clear();
             Console.WriteLine("How many cups would you like to buy?");
@@ -133,7 +138,7 @@ namespace RyanLemonadeStand
                 }
                 else
                 {
-                    return BuyCups();
+                    return BuyCups(player);
                 }
             }
             else
@@ -142,6 +147,7 @@ namespace RyanLemonadeStand
                 
                 Console.WriteLine("You have purchased " + cupsPurchased + " cups.");
                 Console.ReadKey();
+                
                 return cupsPurchased;
                 
 

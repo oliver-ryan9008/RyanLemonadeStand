@@ -18,7 +18,9 @@ namespace RyanLemonadeStand
         public int iceInventory;
         public int sugarInventory;
         public int cupsInventory;
-
+        public double moneyOnHand = 20.00;
+        public int totalLemonadeCreated;
+        public double profit;
 
         public Player()
         {
@@ -32,12 +34,25 @@ namespace RyanLemonadeStand
             currentSugar = currentSugar - 1;
             currentCups = currentCups - 1;
         }
-        public static void UserInventory()
+
+        public void CurrentWalletTotal()
+        {
+            
+
+        }
+        public void UserInventory()
         {
             int lemonInventory;
             int iceInventory;
             int sugarInventory;
             int cupsInventory;
+        }
+        public void LemonadeInventory()
+        {
+            if (lemonInventory > 0 && iceInventory > 0 && sugarInventory > 0 && cupsInventory > 0)
+            {
+                
+            }
         }
 
         public bool InventoryCheck()
@@ -52,6 +67,11 @@ namespace RyanLemonadeStand
                 Console.WriteLine("STORE CLOSED: You do not have enough inventory to serve your customers. You need to purchase more materials before you can reopen your store.");
             }
             return enoughInventory;
+        }
+
+        public void ProfitCalculator(Customer customer, Store store)
+        {
+            profit = customer.totalDaySales * store.lemonadeCupPrice - store.moneySpent;
         }
         
 

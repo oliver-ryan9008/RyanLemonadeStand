@@ -101,6 +101,12 @@ namespace RyanLemonadeStand
             }
         }
 
+        public static void DisplayTotalCustomerPurchases(Customer customer)
+        {
+            Console.WriteLine("The total amount of customers who purchased lemonade today was " + customer.totalBuyers + " people!");
+            Console.ReadKey();
+        }
+
 
 
         

@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace RyanLemonadeStand
 {
-    class Customer
+    public class Customer
     {
-        Random random;
         public int buyChance;
-        public bool customerWhoApproaches;
-        public bool customerWhoBuys;
-        public int numberOfApproachingCustomers;
-        public int possibleCustomer;
-        public int combinedWeather;
-        public List<int> customerApproaching = new List<int>();
+        public bool buyer;
+        public int totalDaySales;
+        //public int customerWhoBuys;
+        public int totalBuyers;
+        public List<int> buyingCustomer = new List<int>();
         public List<int> potentialCustomers = new List<int>();
         public int min = 0;
         public int max = 0;
@@ -24,168 +22,183 @@ namespace RyanLemonadeStand
         {
             //this.random = randomNumber;
         }
+
+        public int CustomersWhoPurchased(Player player)
+        {
+            for(int i = 0; i <= totalBuyers; i++)
+                if(player.enoughInventory == true)
+                {
+                    player.totalLemonadeCreated--;
+                    totalDaySales++;
+                }
+                else{
+                    Console.WriteLine("You did not sell any lemonade today!");
+                }
+            return totalDaySales;
+        }
         public int CustomerPurchaseRate(int min, int max, Day day)
         {
             foreach (int customerWhoBuys in potentialCustomers)
             {
+                Random random = new Random();
                 buyChance = random.Next(0, 100);
                 if (day.combinedWeather == 10)
                 {
                     if (buyChance < 90)
                     {
-                        customerWhoApproaches = true;
-                        customerApproaching.Add(1);
+                        buyer = true;
+                        buyingCustomer.Add(1);
                     }
                     else
                     {
-                        customerWhoApproaches = false;
+                        buyer = false;
                     }
                 }
                 else if (day.combinedWeather == 9)
                 {
                     if (buyChance < 80)
                     {
-                        customerWhoApproaches = true;
-                        customerApproaching.Add(1);
+                        buyer = true;
+                        buyingCustomer.Add(1);
                     }
                     else
                     {
-                        customerWhoApproaches = false;
+                        buyer = false;
                     }
                 }
                 else if (day.combinedWeather == 8)
                 {
                     if (buyChance < 70)
                     {
-                        customerWhoApproaches = true;
-                        customerApproaching.Add(1);
+                        buyer = true;
+                        buyingCustomer.Add(1);
                     }
                     else
                     {
-                        customerWhoApproaches = false;
+                        buyer = false;
                     }
                 }
                 else if (day.combinedWeather == 7)
                 {
                     if (buyChance < 60)
                     {
-                        customerWhoApproaches = true;
-                        customerApproaching.Add(1);
+                        buyer = true;
+                        buyingCustomer.Add(1);
                     }
                     else
                     {
-                        customerWhoApproaches = false;
+                        buyer = false;
                     }
                 }
                 else if (day.combinedWeather == 6)
                 {
                     if (buyChance < 50)
                     {
-                        customerWhoApproaches = true;
-                        customerApproaching.Add(1);
+                        buyer = true;
+                        buyingCustomer.Add(1);
                     }
                     else
                     {
-                        customerWhoApproaches = false;
+                        buyer = false;
                     }
                 }
                 else if (day.combinedWeather == 5)
                 {
                     if (buyChance < 40)
                     {
-                        customerWhoApproaches = true;
-                        customerApproaching.Add(1);
+                        buyer = true;
+                        buyingCustomer.Add(1);
                     }
                     else
                     {
-                        customerWhoApproaches = false;
+                        buyer = false;
                     }
                 }
                 else if (day.combinedWeather == 4)
                 {
                     if (buyChance < 30)
                     {
-                        customerWhoApproaches = true;
-                        customerApproaching.Add(1);
+                        buyer = true;
+                        buyingCustomer.Add(1);
                     }
                     else
                     {
-                        customerWhoApproaches = false;
+                        buyer = false;
                     }
                 }
                 else if (day.combinedWeather == 3)
                 {
                     if (buyChance < 20)
                     {
-                        customerWhoApproaches = true;
-                        customerApproaching.Add(1);
+                        buyer = true;
+                        buyingCustomer.Add(1);
                     }
                     else
                     {
-                        customerWhoApproaches = false;
+                        buyer = false;
                     }
                 }
                 else if (day.combinedWeather == 2)
                 {
                     if (buyChance < 15)
                     {
-                        customerWhoApproaches = true;
-                        customerApproaching.Add(1);
+                        buyer = true;
+                        buyingCustomer.Add(1);
                     }
                     else
                     {
-                        customerWhoApproaches = false;
+                        buyer = false;
                     }
                 }
             }
-            numberOfApproachingCustomers = customerApproaching.Count;
-            return numberOfApproachingCustomers;
+            totalBuyers = buyingCustomer.Count;
+            return totalBuyers;
         }
-        public void GenerateCustomers(Random random, Day day, int min, int max)
+        public void GenerateCustomers(Day day, int min, int max)
         {
-            
+            this.min = 0;
+            this.max = 2000;
+            Random random = new Random();
+            int approachingCustomer = random.Next(min, max);
 
-            int numberOfCustomers = random.Next(min, max);
 
-
-            if (combinedWeather == 2)
+            if (day.combinedWeather == 2)
             {
-                possibleCustomer = random.Next(50, 120);
+                approachingCustomer = random.Next(50, 120);
             }
-            else if (combinedWeather == 3)
+            else if (day.combinedWeather == 3)
             {
-                possibleCustomer = random.Next(121, 125);
+                approachingCustomer = random.Next(121, 125);
             }
-            else if (combinedWeather == 4)
+            else if (day.combinedWeather == 4)
             {
-                possibleCustomer = random.Next(126, 200);
+                approachingCustomer = random.Next(126, 200);
             }
-            else if (combinedWeather == 5)
+            else if (day.combinedWeather == 5)
             {
-                possibleCustomer = random.Next(201, 300);
+                approachingCustomer = random.Next(201, 300);
             }
-            else if (combinedWeather == 6)
+            else if (day.combinedWeather == 6)
             {
-                possibleCustomer = random.Next(301, 500);
+                approachingCustomer = random.Next(301, 500);
             }
-            else if (combinedWeather == 7)
+            else if (day.combinedWeather == 7)
             {
-                possibleCustomer = random.Next(501, 700);
+                approachingCustomer = random.Next(501, 700);
             }
-            else if (combinedWeather == 8)
+            else if (day.combinedWeather == 8)
             {
-                possibleCustomer = random.Next(701, 900);
+                approachingCustomer = random.Next(701, 900);
             }
-            else if (combinedWeather == 9)
+            else if (day.combinedWeather == 9)
             {
-                possibleCustomer = random.Next(901, 1250);
+                approachingCustomer = random.Next(901, 1250);
             }
-            else if (combinedWeather == 10)
+            else if (day.combinedWeather == 10)
             {
-                possibleCustomer = random.Next(1251, 2000);
-
+                approachingCustomer = random.Next(1251, 2000);
             }
-            for (int customers = 1; customers <= numberOfCustomers; customers++)
+            for (int totalCustomers = 1; totalCustomers <= approachingCustomer; totalCustomers++)
             {
                 potentialCustomers.Add(1);
             }
