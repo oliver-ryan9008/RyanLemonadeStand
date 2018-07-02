@@ -9,10 +9,10 @@ namespace RyanLemonadeStand
     public class Player
     {
         
-        public static int currentCups = 0;
-        public static int currentIce = 0;
-        public static int currentLemons = 0;
-        public static int currentSugar = 0;
+        public int currentCups = 0;
+        public int currentIce = 0;
+        public int currentLemons = 0;
+        public int currentSugar = 0;
         public bool enoughInventory;
         public int lemonInventory;
         public int iceInventory;
@@ -34,7 +34,10 @@ namespace RyanLemonadeStand
         }
         public static void UserInventory()
         {
-            lemonInventory = 
+            int lemonInventory;
+            int iceInventory;
+            int sugarInventory;
+            int cupsInventory;
         }
 
         public bool InventoryCheck()

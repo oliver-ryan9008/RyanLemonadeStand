@@ -148,27 +148,27 @@ namespace RyanLemonadeStand
             }
             
         }
-        public int AddTotalLemonsNumber()
+        public void AddTotalLemonsNumber(Player player)
         {
-            totalLemons = lemonsPurchased + UI.currentLemons;
-            return totalLemons;
+            totalLemons = lemonsPurchased + player.currentLemons;
+            //return totalLemons;
 
         }       
-        public int AddTotalSugarNumber()
+        public void AddTotalSugarNumber(Player player)
         {
-            totalSugar = sugarPurchased + UI.currentSugar;
-            return totalSugar;
+            totalSugar = sugarPurchased + player.currentSugar;
+            //return totalSugar;
         }
-        public int AddTotalIceNumber()
+        public void AddTotalIceNumber(Player player)
         {
-            totalIce = icePurchased + UI.currentIce;
-            return totalIce;
+            totalIce = icePurchased + player.currentIce;
+            //return totalIce;
             
         }
-        public int AddTotalCupsNumber()
+        public void AddTotalCupsNumber(Player player)
         {
-            totalCups = cupsPurchased + UI.currentCups;
-            return totalCups;
+            totalCups = cupsPurchased + player.currentCups;
+            //return totalCups;
         }
     }
 }

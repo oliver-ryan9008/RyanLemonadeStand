@@ -8,14 +8,14 @@ namespace RyanLemonadeStand
 {
     public static class UI
     {
-        public static int currentCups = Player.currentCups;
-        public static int currentIce = Player.currentIce;
-        public static int currentSugar = Player.currentSugar;
-        public static int currentLemons = Player.currentLemons;
-        public static int lemonInventory = Store.totalLemons;
-        public static int iceInventory = Store.totalIce;
-        public static int sugarInventory = Store.totalSugar;
-        public static int cupsInventory = Store.totalCups;
+        //public static int currentCups = Player.currentCups;
+        //public static int currentIce = Player.currentIce;
+        //public static int currentSugar = Player.currentSugar;
+        //public static int currentLemons = Player.currentLemons;
+        //public static int totalLemons;
+        //public static int totalIce;
+        //public static int totalSugar;
+        //public static int totalCups;
         //public static int combinedWeather = Day.combinedWeather;
         //public static int randomTemperature = Day.randomTemperature;
         //public static int randomConditions = Day.randomConditions;
@@ -42,23 +42,23 @@ namespace RyanLemonadeStand
             }
         }
 
-        public static void DisplayBackroomInventory()
+        public static void DisplayBackroomInventory(Player player)
         {
-            Console.WriteLine("You have " + currentLemons + " lemons on hand.");
-            Console.WriteLine("You have " + currentSugar + " servings of sugar on hand.");
-            Console.WriteLine("You have " + currentIce + " cubes of ice on hand.");
-            Console.WriteLine("You have " + currentCups + " cups on hand.");
+            Console.WriteLine("You have " + player.currentLemons + " lemons on hand.");
+            Console.WriteLine("You have " + player.currentSugar + " servings of sugar on hand.");
+            Console.WriteLine("You have " + player.currentIce + " cubes of ice on hand.");
+            Console.WriteLine("You have " + player.currentCups + " cups on hand.");
             Console.ReadKey();
             
         }
 
-        public static void DisplayRestockedInventory(Player player)
+        public static void DisplayRestockedInventory(Player player, Store store)
         {
             
-            Console.WriteLine("After all purchases you have " + lemonInventory + " lemons in your inventory.");
-            Console.WriteLine("After all purchases you have " + sugarInventory + " servings of sugar in your inventory.");
-            Console.WriteLine("After all purchases you have " + iceInventory + " cubes of ice in your inventory.");
-            Console.WriteLine("After all purchases you have " + cupsInventory + " cups in your inventory.");
+            Console.WriteLine("After all purchases you have " + store.totalLemons + " lemons in your inventory.");
+            Console.WriteLine("After all purchases you have " + store.totalSugar + " servings of sugar in your inventory.");
+            Console.WriteLine("After all purchases you have " + store.totalIce + " cubes of ice in your inventory.");
+            Console.WriteLine("After all purchases you have " + store.totalCups + " cups in your inventory.");
         }
 
         public static void DisplayTodaysWeather(Day day)

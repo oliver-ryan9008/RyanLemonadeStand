@@ -13,46 +13,52 @@ namespace RyanLemonadeStand
         //public static int lemonsPurchased;
         //public static int sugarPurchased;
         //public static int icePurchased;
-        Random random;
-        public int totalCups = Store.totalCups;
-        public int totalLemons = Store.totalLemons;
-        public int totalSugar = Store.totalSugar;
-        public int totalIce = Store.totalIce;
-        public int combinedWeather = Day.combinedWeather;
-        public static string randomTemperature = Day.randomTemperature.ToString();
-        public static string randomConditions = Day.randomConditions.ToString();
+        Random randomNumber;
+        
+        Store store = new Store();
+        Day day = new Day();
+        //public int totalCups = store.totalCups;
+        //public int totalLemons = Store.totalLemons;
+        //public int totalSugar = Store.totalSugar;
+        //public int totalIce = Store.totalIce;
+        //public int combinedWeather;
+        //public string randomTemperature;
+        //public string randomConditions;
+        public int min;
+        public int max;
+
         public void RunGame()
         {
 
         }
         public void RandomNumberGenerator(Random random)
         {
-            this.random = random;
+            this.randomNumber = random;
         }
 
-        public int GenerateRandomNumber(int min, int max)
-        {
-            random = new Random();
-            int randomNumber = random.Next(min, max);
-            return randomNumber;
-        }
+        //public void GenerateRandomNumber(int min, int max)
+        //{
+        //    this.randomNumber = new Random();
+        //    int randomNumber = randomNumber.Next(min, max);
+        //    return randomNumber;
+        //}
 
 
         public void PromptForGame()
         {
             Console.Clear();
             Console.WriteLine("Let's play a game of Lemonade Stand! Enter yes to start the game or no to quit!");
-            
+
             String startGameChoice;
             startGameChoice = Console.ReadLine().ToLower();
-            if(startGameChoice == "yes")
+            if (startGameChoice == "yes")
             {
                 Console.Clear();
                 Console.WriteLine("Let's get started!");
                 StartGame();
-                
+
             }
-            else if(startGameChoice == "no")
+            else if (startGameChoice == "no")
             {
                 Console.Clear();
                 Console.WriteLine("Alright. No problem. Play later? Just hit any key when you want to play!");
@@ -65,12 +71,13 @@ namespace RyanLemonadeStand
         {
             Player player = new Player();
             Store store = new Store();
-            Day day = new Day();
+            Day day = new Day();            
             Customer customer = new Customer();
-            UI.DisplayBackroomInventory();
+            Random random = new Random();
+            UI.DisplayBackroomInventory(player);
             day.TemperatureGenerator();
             day.ConditionsGenerator();
-            customer.CustomersPurchaseRate();
+            customer.CustomerPurchaseRate(min, max, day);
             UI.DisplayTodaysWeather(day);
             store.BuyLemons();
             store.BuyIce();
@@ -78,11 +85,13 @@ namespace RyanLemonadeStand
             store.BuyCups();
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
-            store.AddTotalCupsNumber();
-            store.AddTotalLemonsNumber();
-            store.AddTotalSugarNumber();
-            store.AddTotalIceNumber();
-            UI.DisplayRestockedInventory(totalCups, totalSugar, totalIce, totalLemons);
+            store.AddTotalCupsNumber(player);
+            store.AddTotalLemonsNumber(player);
+            store.AddTotalSugarNumber(player);
+            store.AddTotalIceNumber(player);
+            UI.DisplayRestockedInventory(player, store);
+            customer.CustomerPurchaseRate(min, max, day);
+            customer.GenerateCustomers(random, day, min, max);
             Console.WriteLine("End of code so far.");
             Console.ReadKey();
             Console.Clear();
