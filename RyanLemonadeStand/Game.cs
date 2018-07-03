@@ -79,10 +79,10 @@ namespace RyanLemonadeStand
             day.ConditionsGenerator();
             customer.CustomerPurchaseRate(min, max, day);
             UI.DisplayTodaysWeather(day);
-            store.BuyLemons();
-            store.BuyIce();
-            store.BuySugar();
-            store.BuyCups();
+            store.BuyLemons(player);
+            store.BuyIce(player);
+            store.BuySugar(player);
+            store.BuyCups(player);
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
             store.AddTotalCupsNumber(player);
@@ -93,6 +93,7 @@ namespace RyanLemonadeStand
             day.TemperatureGenerator();
             day.ConditionsGenerator();
             day.Weather();
+            UI.DisplayTodaysWeather(day);
             customer.GenerateCustomers(day, min, max);
             customer.CustomerPurchaseRate(min, max, day);
             UI.DisplayTotalCustomerPurchases(customer);

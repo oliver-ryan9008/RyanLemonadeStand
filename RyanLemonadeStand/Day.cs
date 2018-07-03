@@ -10,7 +10,7 @@ namespace RyanLemonadeStand
     {
         //public int buyRate;
         public int temperatureReading;
-        public int conditions;
+        public string conditions;
         public int min;
         public int max;
         //public static int random = random;
@@ -66,36 +66,36 @@ namespace RyanLemonadeStand
             }
             return temperatureReading;
         }
-            public int ConditionsGenerator()
+            public string ConditionsGenerator()
             {
             Random randomWeatherConditionsGenerator = new Random();
             randomConditions = randomWeatherConditionsGenerator.Next(1, 5);
             if (randomConditions == 1)
             {
-                conditions = 1;
+                conditions = "storming";
             }
             else if (randomConditions == 2)
             {
-                conditions = 2;
+                conditions = "rainy";
             }
             else if (randomConditions == 3)
             {
-                conditions = 3;
+                conditions = "foggy";
             }
             else if (randomConditions == 4)
             {
-                conditions = 4;
+                conditions = "cloudy";
             }
             else if (randomConditions == 5)
             {
-                conditions = 5;
+                conditions = "sunny";
             }
             return conditions;
         }
 
         public int Weather()
         {
-        randomWeather = conditions + temperatureReading;
+        randomWeather = randomConditions + temperatureReading;
         if (randomWeather == 2)
         {
             combinedWeather = 2;
